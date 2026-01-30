@@ -1,38 +1,40 @@
-# Compiled and build artifacts
-*.pyc
+# Python
 __pycache__/
-*.pyo
-*.pyd
-.Python
-*.o
-*.obj
-*.class
-*.exe
-*.dll
+*.py[cod]
+*$py.class
 *.so
-*.a
-*.out
-
-# Dependencies
-.venv/
-venv/
-env/
-ENV/
-env.bak/
-venv.bak/
-node_modules/
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-pnpm-debug.log*
-lerna-debug.log*
-dist/
+.Python
 build/
-target/
-.gradle/
-.mypy_cache/
-.pytest_cache/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+pip-wheel-metadata/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# PyInstaller
+*.manifest
+*.spec
+
+# Installer logs
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Unit test / coverage reports
+htmlcov/
 .tox/
+.nox/
 .coverage
 .coverage.*
 .cache
@@ -41,72 +43,37 @@ coverage.xml
 *.cover
 *.py,cover
 .hypothesis/
+.pytest_cache/
 
-# Logs and temp files
+# Translations
+*.mo
+*.pot
+
+# Django stuff:
 *.log
-*.tmp
-*.swp
-*.swo
-*~
+local_settings.py
+db.sqlite3
+db.sqlite3-journal
 
-# Environment
-.env
-.env.local
-.env.development.local
-.env.test.local
-.env.production.local
-*.env.*
+# Flask stuff:
+instance/
+.webassets-cache
 
-# Editors
-.vscode/
-.idea/
-*.swp
-*.swo
-*~
+# Scrapy stuff:
+.scrapy
 
-# System files
-.DS_Store
-.DS_Store?
-._*
-.Spotlight-V100
-.Trashes
-ehthumbs.db
-Thumbs.db
+# Sphinx documentation
+docs/_build/
 
-# Machine Learning / Data Science
-*.pkl
-*.joblib
-*.h5
-*.hdf5
-*.pb
-*.ckpt
-*.pth
-*.pt
-models/
-checkpoints/
-runs/
-wandb/
-mlruns/
-
-# Medical Imaging
-*.dcm
-*.dicom
-.DICOM/
-raw_data/
-processed_data/
-training_data/
-test_data/
-
-# Docker
-.dockerignore
-
-# Database
-*.db
-*.sqlite
-*.sqlite3
+# PyBuilder
+target/
 
 # Jupyter Notebook
 .ipynb_checkpoints
+
+# IPython
+profile_default/
+ipython_config.py
 
 # pyenv
 .python-version
@@ -117,12 +84,21 @@ Pipfile.lock
 # PEP 582
 __pypackages__/
 
-# Celery
+# Celery stuff
 celerybeat-schedule
 celerybeat.pid
 
 # SageMath parsed files
 *.sage.py
+
+# Environments
+.env
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
 
 # Spyder project settings
 .spyderproject
@@ -142,32 +118,12 @@ dmypy.json
 # Pyre type checker
 .pyre/
 
-# Frontend specific
-.next/
-.nuxt/
-.vuepress/dist
-.serverless/
-.fusebox/
-.dynamodb/
-.tern-port
-
-# Terraform
-*.tfstate
-*.tfstate.*
-.terraform/
-.terraform.lock.hcl
-
-# Kubernetes
-*.kubeconfig
-
-# Package files
-*.jar
-*.war
-*.nar
-*.ear
-*.zip
-*.tar.gz
-*.rar
+# Node.js
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+lerna-debug.log*
 
 # Runtime data
 pids
@@ -206,6 +162,12 @@ jspm_packages/
 # Optional eslint cache
 .eslintcache
 
+# Microbundle cache
+.rpt2_cache/
+.rts2_cache_cjs/
+.rts2_cache_es/
+.rts2_cache_umd/
+
 # Optional REPL history
 .node_repl_history
 
@@ -214,6 +176,9 @@ jspm_packages/
 
 # Yarn Integrity file
 .yarn-integrity
+
+# dotenv environment variables file
+.env.test
 
 # parcel-bundler cache
 .cache
@@ -224,6 +189,7 @@ jspm_packages/
 
 # Nuxt.js build / generate output
 .nuxt
+dist
 
 # Gatsby files
 .cache/
@@ -236,3 +202,60 @@ public
 # Temporary folders
 tmp/
 temp/
+
+# Logs
+logs
+*.log
+
+# Docker
+.dockerignore
+docker-compose.override.yml
+
+# IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Models and Data
+*.pkl
+*.pth
+*.pt
+*.h5
+*.hdf5
+models/
+data/
+logs/
+uploads/
+wandb/
+mlruns/
+
+# Medical Images
+*.dcm
+*.dicom
+
+# Database
+*.db
+*.sqlite3
+
+# Backup files
+*.bak
+*.backup
+*.old
+
+# Test files
+test_images/
+test_data/
+
+# CI/CD
+.github/secrets/

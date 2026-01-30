@@ -20,6 +20,7 @@ graph TB
         PREP[Preprocessing Service<br/>Image Enhancement & ROI Extraction]
         MODEL[Model Orchestrator<br/>ML Model Management]
         CACHE[Redis Cache<br/>Performance Optimization]
+        STORAGE[MinIO S3<br/>Image Storage]
     end
     
     subgraph "AI/ML Models"
@@ -30,19 +31,18 @@ graph TB
     
     subgraph "Data Layer"
         DB[(PostgreSQL<br/>Metadata & Results)]
-        S3[(MinIO S3<br/>Image Storage)]
     end
     
     UI --> API
     API --> PREP
     API --> MODEL
     API --> CACHE
+    API --> STORAGE
     PREP --> MODEL
     MODEL --> CNN
     MODEL --> SVM
     MODEL --> QKN
     API --> DB
-    API --> S3
 ```
 
 ## 🚀 Features
@@ -111,32 +111,36 @@ npm run dev
 
 ```
 DentalAssessment/
+├── frontend/                    # React TypeScript Frontend
+│   ├── src/
+│   │   ├── components/          # React Components
+│   │   ├── services/           # API Services
+│   │   ├── stores/             # State Management
+│   │   ├── types/              # TypeScript Types
+│   │   ├── App.tsx
+│   │   └── main.tsx
+│   ├── public/
+│   ├── package.json
+│   ├── tsconfig.json
+│   └── Dockerfile
 ├── backend/                    # FastAPI Backend
 │   ├── api/
 │   │   ├── routers/           # API Routes
 │   │   └── schemas/           # Pydantic Models
-│   ├── core/                  # Configuration
-│   ├── services/              # Business Logic
 │   ├── preprocessing/         # Image Processing
 │   ├── classical/             # Classical ML Models
 │   ├── quantum/               # Quantum Computing
+│   ├── services/              # Business Logic
+│   ├── core/                  # Configuration
+│   ├── models/                # Database Models
 │   ├── tests/                 # Backend Tests
 │   └── Dockerfile
-├── frontend/                  # React Frontend
-│   ├── src/
-│   │   ├── components/        # React Components
-│   │   ├── services/          # API Services
-│   │   ├── types/             # TypeScript Types
-│   │   └── utils/             # Utilities
-│   ├── public/
-│   ├── tests/                 # Frontend Tests
-│   └── Dockerfile
+├── docker/                    # Docker Configuration
 ├── models/                    # Trained Models
-├── data/                      # Dataset & Samples
+├── tests/                     # Test Data
 ├── docs/                      # Documentation
 ├── .github/workflows/         # CI/CD Pipelines
 ├── docker-compose.yml
-├── docker-compose.prod.yml
 ├── .env.example
 ├── LICENSE
 └── README.md
@@ -191,12 +195,9 @@ curl -X POST "http://localhost:8000/api/v1/assessment" \
   "confidence": 0.923,
   "model": "quantum",
   "roi_image": "base64_encoded_image",
-  "features": {
-    "texture_score": 0.743,
-    "intensity_variance": 0.128,
-    "shape_irregularity": 0.582
-  },
-  "processing_time_ms": 1247
+  "roi_coordinates": [x1, y1, x2, y2],
+  "processing_time": 1.23,
+  "timestamp": "2024-01-15T10:30:00Z"
 }
 ```
 
