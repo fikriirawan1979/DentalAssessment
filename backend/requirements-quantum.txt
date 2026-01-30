@@ -1,0 +1,6 @@
+pennylane>=0.33.0
+pennylane-qiskit>=0.33.0
+qiskit>=0.45.0
+qiskit-aer>=0.13.0
+qiskit-algorithms>=0.2.0
+qiskit-ibmq-provider>=0.20.0
